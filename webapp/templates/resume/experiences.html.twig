@@ -1,0 +1,155 @@
+{% extends 'resume/layout.html.twig' %}
+
+{% block title %}Experiences
+{% endblock %}
+
+{% block content %}
+
+	{% set form_prototype %}
+		{% include "form/prototype.html.twig" with {'form': form.experiences} %}
+	{% endset %}
+
+	<div class="flex items-center justify-between py-4">
+		<h2 class="text-2xl text-bold">Ajoutez vos expériences</h2>
+		<a class="p-2 duration-300 rounded-md hover:bg-gray-300" id="form_add_new_experience" href="#">
+			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+		</a>
+	</div>
+
+	{{ form_start(form, {attr: {
+		'data-index': form.experiences|length > 0 ? form.experiences|last.vars.name + 1 : 0,
+	}}) }}
+	<template id="experience_prototype">
+		{{ form_prototype|raw }}
+	</template>
+
+
+
+	{% for experience in form.experiences %}
+		<div class="px-6 py-4 mb-4 overflow-hidden bg-white border-4 rounded-md" id="resume_experiences_form_experiences_{{ loop.index - 1 }}">
+
+			<div class="flex flex-col mb-4">
+				{{ form_label(experience.type) }}
+				{{ form_widget(experience.type, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(experience.type) }}</span>
+			</div>
+
+			<div class="flex flex-col mb-4">
+				{{ form_label(experience.name) }}
+				{{ form_widget(experience.name, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(experience.name) }}</span>
+			</div>
+
+			<div class="flex flex-col mb-4">
+				{{ form_label(experience.company) }}
+				<div class="flex items-center">
+					<div class="p-3 border rounded-md">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5m-4 0h4"/></svg>
+					</div>
+					{{ form_widget(experience.company, {'attr': {
+						'class': 'ml-2 relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+					}}) }}
+				</div>
+				<span class="text-sm text-red-500">{{ form_field_get_error(experience.company) }}</span>
+			</div>
+
+			<div class="flex gap-4">
+				<div class="flex flex-col w-1/2 mb-4">
+					{{ form_label(experience.startedAt) }}
+					{{ form_widget(experience.startedAt, {'attr': {
+						'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+					}}) }}
+					<span class="text-sm text-red-500">{{ form_field_get_error(experience.startedAt) }}</span>
+				</div>
+
+				<div class="flex flex-col w-1/2 mb-4">
+					{{ form_label(experience.endedAt) }}
+					{{ form_widget(experience.endedAt, {'attr': {
+						'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+					}}) }}
+					<span class="text-sm text-red-500">{{ form_field_get_error(experience.endedAt) }}</span>
+				</div>
+			</div>
+
+			<div class="flex flex-col mb-4">
+				{{ form_label(experience.localization) }}
+				{{ form_widget(experience.localization, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(experience.localization) }}</span>
+			</div>
+
+			<div class="flex flex-col mb-4">
+				{{ form_label(experience.description) }}
+				{{ form_widget(experience.description, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(experience.description) }}</span>
+			</div>
+
+			<div class="flex items-center justify-end">
+				<a data-target="{{ loop.index - 1 }}" class="text-sm text-gray-400 underline experience_delete hover:text-gray-700" href="#">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 7-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3M4 7h16"/></svg>
+				</a>
+			</div>
+
+		</div>
+
+	{% else %}
+		<div class="flex flex-col items-center justify-center w-full opacity-75">
+				<svg class="w-auto h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve"><path d="M418.034 43.724c-22.164 0-40.197 18.032-40.197 40.197v78.722c0 8.862-7.21 16.072-16.072 16.072H321.15V85.83C321.149 38.503 282.646 0 235.32 0s-85.83 38.503-85.83 85.83v220.421h-7.62c-7.458 0-13.524-6.066-13.524-13.524v-71.088c0-20.561-16.727-37.288-37.288-37.288-20.562 0-37.288 16.728-37.288 37.288v110.038c0 27.101 22.049 49.15 49.15 49.15h46.571v110.775h-35.889c-5.633 0-10.199 4.566-10.199 10.199S107.969 512 113.602 512h219.802c5.632 0 10.199-4.566 10.199-10.199s-4.567-10.199-10.199-10.199H321.15V259.109h83.749c29.407 0 53.333-23.925 53.333-53.333V83.921c-.001-22.165-18.033-40.197-40.198-40.197zM149.49 360.43h-46.571c-15.854 0-28.752-12.898-28.752-28.752V221.639c0-9.313 7.577-16.89 16.89-16.89s16.89 7.577 16.89 16.89v71.088c0 18.704 15.217 33.923 33.923 33.923h7.62v33.78zm151.261 131.172H169.888V85.83c0-36.08 29.352-65.432 65.432-65.432 36.079 0 65.431 29.352 65.431 65.432v92.884h-17.707c-22.164 0-40.197 18.032-40.197 40.197 0 22.164 18.033 40.197 40.197 40.197h17.707v232.494zm137.082-285.826c-.001 18.16-14.774 32.934-32.935 32.934H283.044c-10.917 0-19.799-8.881-19.799-19.799s8.881-19.799 19.799-19.799h78.722c20.11 0 36.47-16.361 36.47-36.47V83.921c0-10.917 8.881-19.799 19.799-19.799 10.917 0 19.799 8.881 19.799 19.799v121.855z"/><path d="M202.231 289.525c-5.633 0-10.199 4.566-10.199 10.199v142.99c0 5.633 4.566 10.199 10.199 10.199s10.199-4.566 10.199-10.199v-142.99c0-5.633-4.566-10.199-10.199-10.199zM202.231 225.711c-5.633 0-10.199 4.566-10.199 10.199v17.726c0 5.633 4.566 10.199 10.199 10.199s10.199-4.566 10.199-10.199V235.91c0-5.632-4.566-10.199-10.199-10.199zM235.32 94.538c-5.633 0-10.199 4.566-10.199 10.199v49.633c0 5.633 4.566 10.199 10.199 10.199s10.199-4.566 10.199-10.199v-49.633c0-5.632-4.566-10.199-10.199-10.199zM235.32 41.361c-5.633 0-10.199 4.566-10.199 10.199v14.181c0 5.632 4.566 10.199 10.199 10.199s10.199-4.566 10.199-10.199V51.56c0-5.633-4.566-10.199-10.199-10.199zM277.863 388.791c-5.632 0-10.199 4.566-10.199 10.199v14.181c0 5.633 4.567 10.199 10.199 10.199s10.199-4.566 10.199-10.199V398.99c0-5.633-4.567-10.199-10.199-10.199zM388.946 491.602h-15.363c-5.632 0-10.199 4.566-10.199 10.199S367.951 512 373.583 512h15.363c5.632 0 10.199-4.566 10.199-10.199s-4.567-10.199-10.199-10.199z"/></svg>
+				<p class="mt-4 font-xl">C'est un peu vide ici...</p>
+		</div>
+	{% endfor %}
+
+	<div class="flex flex-col mt-4 mb-2">
+		{{ form_widget(form.submit, { attr: {
+			class: 'px-6 py-2 bg-[#F49643] text-white font-semibold hover:opacity-75 duration-150 rounded-md',
+		}}) }}
+	</div>
+	
+	{{ form_end(form) }}
+
+
+	<script>
+		
+			const addNewExperienceElement = document.querySelector('#form_add_new_experience');
+			const collectionHolder = document.querySelector('form')
+			const prototypeTemplate = document.querySelector('#experience_prototype');
+			
+			const addFormToCollection = (e) => {
+				const newContent = prototypeTemplate.innerHTML.replace(/__name__/g, collectionHolder.dataset.index);
+				collectionHolder.innerHTML  = newContent + collectionHolder.innerHTML;
+
+				const deleteButton = document.querySelector(`#resume_experiences_form_experiences_${collectionHolder.dataset.index} a.experience_delete`);
+				deleteButton.addEventListener('click', (e) => {
+					e.preventDefault();
+					deleteButton.parentNode.parentNode.remove();
+				});
+				
+				collectionHolder.dataset.index++;
+			}
+
+			document.querySelectorAll('a.experience_delete').forEach((deleteButton) => {
+				deleteButton.addEventListener('click', (e) => {
+					e.preventDefault();
+					deleteButton.parentNode.parentNode.remove();
+				});
+			});
+			
+			addNewExperienceElement.addEventListener("click", addFormToCollection)
+		
+
+		
+
+		{# init(); #}
+
+
+	</script>
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body class="overflow-x-hidden">
+		<header>
+			<nav class="h-20 bg-white shadow-lg">
+				<a href="{{ path('homepage') }}">
+					<img class="p-4 ml-12 w-36" src="{{ asset('oceanet-logo.png') }}" alt="Oceanet Technology">
+				</a>
+			</nav>
+		</header>
+		<div id="swup" class="transition-fade _bg-[#F6F6F9]">
+			{% block body %}{% endblock %}
+		</div>
+		<footer class="text-white bg-black mt-14">
+			<div class="container pb-20 border-b-4 border-gray-400 pt-14 ">
+				<div class="flex flex-row -ml-5 -mr-5">
+					<div class="w-1/2 px-20">
+						<p class="text-2xl">OCEANET TECHNOLOGY</p><br>
+						<div class="w-64 border-2 border-white ">
+						<p class="text-2xl text-center text-orange-500">02 28 03 78 78</p>
+						</div>
+					</div>
+					<div class="flex flex-col pl-5 pr-5 mb-16">
+						<a href="#" class="mb-2">LE GROUPE</a>
+						<a href="#" class="mb-2">NOS SECTEURS</a>
+						<a href="#" class="mb-2">ACTUALITÉS</a>
+						<a href="#" class="mb-2">CAS CLIENTS</a>
+						<a href="#" class="mb-2">PARTENAIRES</a>
+						<a href="#" class="mb-2 text-orange-500">NOUS REJOINDRE</a>
+					</div>
+					<div class="mb-16 pl-5 pr-5 flex flex-col space-y-2.5">
+						<a href="#" class"">NOTRE AGENCE A NANTES</a>
+						<a href="#" class"">NOTRE AGENCE A PARIS</a>
+						<a href="#" class"">INDEX EGALITE FEMMES</a>
+					</div>
+					
+				</div>
+				{# <div class="flex flex-row pl-16 pr-5">
+					<p class="mr-14">SUIVEZ-NOUS SUR LES RESEAUX</p>
+				</div> #}
+			</div>
+		</footer>
+	</body>
+</html>

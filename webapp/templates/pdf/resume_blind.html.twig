@@ -1,0 +1,46 @@
+{% extends "layout/pdf_layout.html.twig" %}
+
+{% block body %}
+    <div class="mt-16 ml-24 mr-24">
+        <div>
+            REF: {{ resume.hash }}
+		</div>
+
+		<h2 class="my-4 text-2xl font-semibold uppercase border-b-2 border-orange-500">Compétences</h2>
+        <div class="flex flex-col">
+            {{ resume.skills|default('') }}
+        </div>
+
+        <h2 class="my-4 text-2xl font-semibold uppercase border-b-2 border-orange-500">Expériences</h2>
+        <div class="flex flex-col mb-6">
+            {% for exp in resume.experiences %}
+                {% if exp.type == 'pro' %}
+                    <div class="flex flex-col my-4">
+                        <span>Titre: {{ exp.name }}</span>
+                        <span>Entreprise: {{ exp.company }}</span>
+                        <span>Localisation: {{ exp.localization }}</span>
+                        <span>Durée: {{ exp.startedAt|date('d/m/Y') }} à {{ exp.endedAt|date('d/m/Y')|default('Aujourd\'hui') }}</span>
+                        
+                        <span>Description: {{ exp.description|default('') }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2 class="my-4 text-2xl font-semibold uppercase border-b-2 border-orange-500">Diplômes</h2>
+        <div class="flex flex-col mb-6">
+            {% for exp in resume.experiences %}
+                {% if exp.type == 'studies' %}
+                    <div class="flex flex-col my-4">
+                        <span>Titre: {{ exp.name }}</span>
+                        <span>Ecole: {{ exp.company }}</span>
+                        <span>Localisation: {{ exp.localization }}</span>
+                        <span>Durée: {{ exp.startedAt|date('d/m/Y') }} à {{ exp.endedAt|date('d/m/Y')|default('Aujourd\'hui') }}</span>
+                        
+                        <span>Description: {{ exp.description|default('') }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+    </div>
+{% endblock %}

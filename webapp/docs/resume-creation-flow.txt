@@ -1,0 +1,20 @@
+1 - informations générales (nom, prenom,adresse, mail, tél..)
+
+    - nom
+    - prénom
+    - email
+    - tel mobile
+    - adresse:
+        - complement
+        - ville
+        - code postal
+        - pays
+
+    ---------------
+
+2 - formations
+
+    
+
+
+

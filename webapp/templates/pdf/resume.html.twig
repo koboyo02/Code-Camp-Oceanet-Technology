@@ -1,0 +1,65 @@
+{% extends "layout/pdf_layout.html.twig" %}
+
+{% block body %}
+    <div class="ml-24 mr-24">
+		<div class="flex justify-between mt-6">
+			<img src="data:image/jpeg;base64,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"/>
+			
+			
+		</div>
+		<div class="mt-4 font-bold">
+			{{ resume.firstName ~ ' ' ~ resume.lastName }}
+		</div>
+		<p>Téléphone: {{ resume.phone }}</p>
+		<p>Mail: {{ resume.email }}</p>
+		<div class="flex flex-col">
+            <span>Adresse:</span>
+            <div class="flex flex-col ml-4">
+                <span>Complément: {{ resume.address.address }}</span>
+                <span>Ville: {{ resume.address.city }}</span>
+                <span>Code postale: {{ resume.address.zipCode }}</span>
+                <span>Pays: {{ resume.address.country }}</span>
+            </div>
+        </div>
+        <div>
+            REF: {{ resume.hash }}
+		</div>
+
+		<h2 class="my-4 text-2xl font-semibold uppercase border-b-2 border-orange-500">Compétences</h2>
+        <div class="flex flex-col">
+            {{ resume.skills|default('') }}
+        </div>
+
+        <h2 class="my-4 text-2xl font-semibold uppercase border-b-2 border-orange-500">Expériences</h2>
+        <div class="flex flex-col mb-6">
+            {% for exp in resume.experiences %}
+                {% if exp.type == 'pro' %}
+                    <div class="flex flex-col my-4">
+                        <span>Titre: {{ exp.name }}</span>
+                        <span>Entreprise: {{ exp.company }}</span>
+                        <span>Localisation: {{ exp.localization }}</span>
+                        <span>Durée: {{ exp.startedAt|date('d/m/Y') }} à {{ exp.endedAt|date('d/m/Y')|default('Aujourd\'hui') }}</span>
+                        
+                        <span>Description: {{ exp.description|default('') }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h2 class="my-4 text-2xl font-semibold uppercase border-b-2 border-orange-500">Diplômes</h2>
+        <div class="flex flex-col mb-6">
+            {% for exp in resume.experiences %}
+                {% if exp.type == 'studies' %}
+                    <div class="flex flex-col my-4">
+                        <span>Titre: {{ exp.name }}</span>
+                        <span>Ecole: {{ exp.company }}</span>
+                        <span>Localisation: {{ exp.localization }}</span>
+                        <span>Durée: {{ exp.startedAt|date('d/m/Y') }} à {{ exp.endedAt|date('d/m/Y')|default('Aujourd\'hui') }}</span>
+                        
+                        <span>Description: {{ exp.description|default('') }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+    </div>
+{% endblock %}

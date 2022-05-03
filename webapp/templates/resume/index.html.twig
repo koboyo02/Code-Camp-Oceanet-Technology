@@ -1,0 +1,100 @@
+{% extends 'resume/layout.html.twig' %}
+
+{% block title %}Resume
+{% endblock %}
+
+{% block content %}
+
+	<h2 class="mb-4 text-2xl text-bold">Informations générales</h2>
+
+	<div class="px-6 py-4 mb-4 overflow-hidden bg-white border-4 rounded-md">
+
+		{{ form_start(form) }}
+		<div class="flex gap-4">
+			<div class="flex flex-col w-1/2 mb-4">
+				{{ form_label(form.firstName) }}
+				{{ form_widget(form.firstName, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(form.firstName) }}</span>
+			</div>
+
+			<div class="flex flex-col w-1/2 mb-4">
+				{{ form_label(form.lastName) }}
+				{{ form_widget(form.lastName, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(form.lastName) }}</span>
+			</div>
+		</div>
+		<div class="flex flex-col mb-4">
+			{{ form_label(form.email) }}
+			{{ form_widget(form.email, {'attr': {
+				'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+			}}) }}
+			<span class="text-sm text-red-500">{{ form_field_get_error(form.email) }}</span>
+		</div>
+
+		<div class="flex flex-col mb-4">
+			{{ form_label(form.phone) }}
+			{{ form_widget(form.phone, {'attr': {
+				'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+			}}) }}
+			<span class="text-sm text-red-500">{{ form_field_get_error(form.phone) }}</span>
+		</div>
+
+		<div class="flex flex-col mb-4">
+			{{ form_label(form.address.address) }}
+			{{ form_widget(form.address.address, {'attr': {
+				'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+			}}) }}
+			<span class="text-sm text-red-500">{{ form_field_get_error(form.address.address) }}</span>
+		</div>
+
+		<div class="flex gap-4">
+			<div class="flex flex-col w-1/2 mb-4">
+				{{ form_label(form.address.city) }}
+				{{ form_widget(form.address.city, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(form.address.city) }}</span>
+			</div>
+
+			<div class="flex flex-col w-1/2 mb-4">
+				{{ form_label(form.address.zipCode) }}
+				{{ form_widget(form.address.zipCode, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(form.address.zipCode) }}</span>
+			</div>
+		</div>
+
+		<div class="flex gap-4">
+			<div class="flex flex-col w-1/2 mb-4">
+				{{ form_label(form.address.country) }}
+				{{ form_widget(form.address.country, {'attr': {
+					'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+				}}) }}
+				<span class="text-sm text-red-500">{{ form_field_get_error(form.address.country) }}</span>
+			</div>
+		</div>
+
+		<div class="flex flex-col mb-6">
+			{{ form_label(form.skills) }}
+			{{ form_widget(form.skills, {'attr': {
+				'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+			}}) }}
+			<span class="text-sm text-red-500">{{ form_field_get_error(form.skills) }}</span>
+		</div>
+
+		<div class="flex flex-col mt-4 mb-2">
+			{{ form_widget(form.submit, { attr: {
+				class: 'px-6 py-2 bg-[#F49643] text-white font-semibold hover:opacity-75 duration-150 rounded-md',
+			}}) }}
+		</div>
+
+	</div>
+	{{ form_end(form) }}
+
+
+{% endblock %}

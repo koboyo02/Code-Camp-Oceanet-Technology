@@ -1,0 +1,73 @@
+{# {{ form_widget(form.vars.prototype) }} #}
+<div class="bg-white px-6 py-4 overflow-hidden rounded-md mb-4 border-4" id="resume_experiences_form_experiences___name__">
+
+    <div class="flex flex-col mb-4">
+        {{ form_label(form.vars.prototype.children.type) }}
+        {{ form_widget(form.vars.prototype.children.type, {'attr': {
+            'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+        }}) }}
+        <span class="text-sm text-red-500">{{ form_field_get_error(form.vars.prototype.children.type) }}</span>
+    </div>
+
+    <div class="flex flex-col mb-4">
+        {{ form_label(form.vars.prototype.children.name) }}
+        {{ form_widget(form.vars.prototype.children.name, {'attr': {
+            'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+        }}) }}
+        <span class="text-sm text-red-500">{{ form_field_get_error(form.vars.prototype.children.name) }}</span>
+    </div>
+
+    <div class="flex flex-col mb-4">
+        {{ form_label(form.vars.prototype.children.company) }}
+        <div class="flex items-center">
+            <div class="p-3 border rounded-md">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5m-4 0h4"/></svg>
+            </div>
+            {{ form_widget(form.vars.prototype.children.company, {'attr': {
+                'class': 'ml-2 relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+            }}) }}
+        </div>
+        <span class="text-sm text-red-500">{{ form_field_get_error(form.vars.prototype.children.name) }}</span>
+    </div>
+
+    <div class="flex gap-4">
+        <div class="flex flex-col mb-4 w-1/2">
+            {{ form_label(form.vars.prototype.children.startedAt) }}
+            {{ form_widget(form.vars.prototype.children.startedAt, {'attr': {
+                'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+            }}) }}
+            <span class="text-sm text-red-500">{{ form_field_get_error(form.vars.prototype.children.startedAt) }}</span>
+        </div>
+
+        <div class="flex flex-col mb-4 w-1/2">
+            {{ form_label(form.vars.prototype.children.endedAt) }}
+            {{ form_widget(form.vars.prototype.children.endedAt, {'attr': {
+                'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+            }}) }}
+            <span class="text-sm text-red-500">{{ form_field_get_error(form.vars.prototype.children.endedAt) }}</span>
+        </div>
+    </div>
+
+    <div class="flex flex-col mb-4">
+        {{ form_label(form.vars.prototype.children.localization) }}
+        {{ form_widget(form.vars.prototype.children.localization, {'attr': {
+            'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+        }}) }}
+        <span class="text-sm text-red-500">{{ form_field_get_error(form.vars.prototype.children.localization) }}</span>
+    </div>
+
+    <div class="flex flex-col mb-4">
+        {{ form_label(form.vars.prototype.children.description) }}
+        {{ form_widget(form.vars.prototype.children.description, {'attr': {
+            'class': 'relative p-2 w-full text-gray-700 bg-white rounded border border-gray-300',
+        }}) }}
+        <span class="text-sm text-red-500">{{ form_field_get_error(form.vars.prototype.children.description) }}</span>
+    </div>
+
+    <div class="flex items-center justify-end">
+        <a data-target="__name__" class="experience_delete text-sm underline text-gray-400 hover:text-gray-700" href="#">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 7-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3M4 7h16"/></svg>
+        </a>
+    </div>
+
+</div>
