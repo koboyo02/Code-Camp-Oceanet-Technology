@@ -4,15 +4,13 @@ Pour ce prejet des RH de Oceanet nous ont donner cette problématique ``En tant 
 
 ## Installation
 
-composer install # installe les dépendances php
-npm install # installe les dépendances javascript
-npm run dev # Lance une build des assets en mode dev
+- ``composer install``  installe les dépendances php
+- ``npm install``  installe les dépendances javascript
+- ``npm run dev`` Lance une build des assets en mode dev
 
 ## Lancement 
 
-php -S localhost:8080 -t public # lance un serveur php sur le port 8080 en local pointant sur le dossier public
-```
-````
+``php -S localhost:8080 -t public`` lance un serveur php sur le port 8080 en local pointant sur le dossier public
 
 Remarques:
 
